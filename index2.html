@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أفاق لنقل العفش - خدمات محترفة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            direction: rtl;
+            text-align: right;
+            background: #f5f5f5;
+        }
+
+        /* Header Styles */
+        .main-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            max-width: 1200px;
+            width: 100%;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%; /* Circular logo */
+            object-fit: cover;
+            border: 2px solid #2980b9; /* Blue border */
+        }
+
+        .company-name {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-align: center;
+            flex: 1; /* Center the text */
+        }
+
+        .header-cta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .header-cta .cta-button {
+            padding: 10px 20px;
+            background: #27ae60; /* Green color */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .header-cta .cta-button:hover {
+            background: #219653; /* Darker green on hover */
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            margin-top: 100px; /* Space for fixed header */
+            overflow: hidden;
+        }
+
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-content .cta-button {
+            padding: 12px 30px;
+            background: #2980b9;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            transition: background 0.3s ease;
+        }
+
+        .hero-content .cta-button:hover {
+            background: #1a5276;
+        }
+
+        /* Why Choose Us Section */
+        .why-choose-us {
+            padding: 60px 20px;
+            background: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .subheading {
+            color: #666;
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .description {
+            color: #777;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            text-align: center;
+        }
+
+        /* Feature Cards */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            background: #ffa500; /* Light orange background on hover */
+            transform: translateY(-10px) scale(1.05); /* Pop-up effect */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Add shadow on hover */
+        }
+
+        .feature-card:hover h4,
+        .feature-card:hover .benefits-list li,
+        .feature-card:hover .cta-button {
+            color: white; /* Change text color on hover */
+        }
+
+        .feature-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card .keyword-button {
+            position: absolute;
+            top: 10px;
+            right: 10px; /* Moved to top-left */
+            background: #2980b9;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .feature-card .keyword-button:hover {
+            background: #1a5276;
+        }
+
+        .benefits-list {
+            list-style: none;
+            padding: 15px 0;
+        }
+
+        .benefits-list li {
+            padding: 10px 0;
+            position: relative;
+            padding-right: 25px;
+            transition: color 0.3s ease;
+        }
+
+        .benefits-list li::before {
+            content: "✓";
+            color: #27ae60;
+            position: absolute;
+            right: 0;
+        }
+
+        .feature-card .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #27ae60; /* Green color */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 15px;
+            transition: background 0.3s ease;
+        }
+
+        .feature-card .cta-button:hover {
+            background: #219653; /* Darker green on hover */
+        }
+
+        /* Reviews Section */
+        .reviews-section {
+            padding: 60px 20px;
+            background: #f9f9f9;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .review-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .review-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%; /* Circular image */
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+
+        .review-card h4 {
+            color: #2c3e50;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .review-card p {
+            color: #777;
+            line-height: 1.6;
+        }
+
+        .review-card .rating {
+            color: #f1c40f;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        /* Q&A Section */
+        .qa-section {
+            padding: 60px 20px;
+            background: white;
+        }
+
+        .qa-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .qa-card {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .qa-card h4 {
+            color: #2c3e50;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .qa-card p {
+            color: #777;
+            line-height: 1.6;
+        }
+
+        /* New Blocks: Services Overview */
+        .services-overview {
+            padding: 60px 20px;
+            background: #2980b9;
+            color: white;
+            text-align: center;
+        }
+
+        .services-overview h2 {
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .service-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%; /* Circular icon */
+            margin-bottom: 1rem;
+        }
+
+        .service-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Footer Section */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #27ae60; /* Green color */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            transition: background 0.3s ease;
+        }
+
+        .footer .cta-button:hover {
+            background: #219653; /* Darker green on hover */
+        }
+
+        .footer .keywords {
+            margin-top: 20px;
+            font-size: 1rem;
+            color: #ddd;
+        }
+
+        .footer .keywords span {
+            margin: 0 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .company-name {
+                font-size: 1.5rem;
+            }
+
+            .logo {
+                width: 50px;
+                height: 50px;
+            }
+
+            .header-cta .cta-button {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .company-name {
+                font-size: 1.3rem;
+            }
+
+            .description {
+                font-size: 0.9rem;
+            }
+
+            .feature-card {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="main-header">
+        <div class="logo-container">
+            <img src="https://movers-egypt.com/wp-content/themes/alrahma_theme/imgs/alrahma-logo-2.png" 
+                 alt="شعار أفاق" 
+                 class="logo">
+            <h1 class="company-name">أفاق لنقل العفش</h1>
+            <div class="header-cta">
+                <a href="tel:0102488890" class="cta-button">اتصل بنا: 0102488890</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="https://movers-egypt.com/wp-content/themes/alrahma_theme/imgs/about-1.jpg" alt="خدمات النقل المحترفة">
+        <div class="hero-content">
+            <h1>أفاق لنقل العفش</h1>
+            <p>نقل آمن وسريع بضمان شامل</p>
+            <a href="#" class="cta-button">اطلب الخدمة الآن</a>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us">
+        <div class="container">
+            <h2>لماذا تختار أفاق؟</h2>
+            <h3 class="subheading">أبرز المميزات والخدمات</h3>
+            <p class="description">
+                نوفر حلولاً شاملة لنقل العفش بكل أمان واحترافية، مع ضمان شامل ضد الخدوش أو الكسور. فريق عمل مدرب و معدات حديثة لضمان نقل آمن وسريع.
+            </p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <img src="https://moving-service.online/uploads/service/ec8651d0-6527-46ec-b187-6415ed127d57_1.jpg" alt="نقل آمن">
+                    <a href="#" class="keyword-button">نقل عفش بأكتوبر</a>
+                    <h4>نقل آمن بضمان شامل</h4>
+                    <ul class="benefits-list">
+                        <li>ضمان ضد الكسور والخدوش</li>
+                        <li>تغليف احترافي للقطع الحساسة</li>
+                        <li>تأمين على المنقولات</li>
+                        <li>فريق عمل مدرب ومحترف</li>
+                    </ul>
+                    <a href="#" class="cta-button">اطلب الخدمة الآن</a>
+                </div>
+
+                <div class="feature-card">
+                    <img src="https://moving-service.online/uploads/service/ec8651d0-6527-46ec-b187-6415ed127d57_1.jpg" alt="أسعار تنافسية">
+                    <a href="#" class="keyword-button">نقل عفش بأكتوبر</a>
+                    <h4>أسعار تنافسية وخصومات</h4>
+                    <ul class="benefits-list">
+                        <li>أفضل الأسعار في السوق</li>
+                        <li>خصومات تصل إلى 30%</li>
+                        <li>تعاقد رسمي مع فواتير معتمدة</li>
+                        <li>لا يوجد تكاليف خفية</li>
+                    </ul>
+                    <a href="#" class="cta-button">اطلب الخدمة الآن</a>
+                </div>
+
+                <div class="feature-card">
+                    <img src="https://moving-service.online/uploads/service/ec8651d0-6527-46ec-b187-6415ed127d57_1.jpg" alt="خدمات متكاملة">
+                    <a href="#" class="keyword-button">نقل عفش بأكتوبر</a>
+                    <h4>خدمات متكاملة 24/7</h4>
+                    <ul class="benefits-list">
+                        <li>أسرع خدمة نقل في مصر</li>
+                        <li>تخزين آمن للممتلكات</li>
+                        <li>خدمة عملاء على مدار الساعة</li>
+                        <li>تتبع الشحنات أونلاين</li>
+                    </ul>
+                    <a href="#" class="cta-button">اطلب الخدمة الآن</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section">
+        <div class="container">
+            <h2>آراء العملاء</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <img src="https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg" alt="محمد أحمد">
+                    <h4>محمد أحمد</h4>
+                    <p>خدمة ممتازة وفريق محترف، أنصح الجميع بتجربة خدماتهم.</p>
+                    <div class="rating">★★★★★</div>
+                </div>
+                <div class="review-card">
+                    <img src="https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg" alt="سارة محمود">
+                    <h4>سارة محمود</h4>
+                    <p>نقل عفش سريع وآمن، شكرًا لفريق أفاق على الاحترافية.</p>
+                    <div class="rating">★★★★★</div>
+                </div>
+                <div class="review-card">
+                    <img src="https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg" alt="علي حسن">
+                    <h4>علي حسن</h4>
+                    <p>أسعار مناسبة وخدمة ممتازة، أنصح بهم بشدة.</p>
+                    <div class="rating">★★★★☆</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Q&A Section -->
+    <section class="qa-section">
+        <div class="container">
+            <h2>أسئلة وأجوبة</h2>
+            <div class="qa-grid">
+                <div class="qa-card">
+                    <h4>ما هي تكلفة نقل العفش؟</h4>
+                    <p>تختلف التكلفة حسب حجم ونوع العفش والمسافة. نقدم عروض أسعار تنافسية وخصومات تصل إلى 30%.</p>
+                </div>
+                <div class="qa-card">
+                    <h4>هل توفرون خدمة التغليف؟</h4>
+                    <p>نعم، نوفر خدمة تغليف احترافية لجميع أنواع العفش لضمان الحماية الكاملة أثناء النقل.</p>
+                </div>
+                <div class="qa-card">
+                    <h4>هل هناك تأمين على المنقولات؟</h4>
+                    <p>نعم، نقدم تأمينًا شاملًا على جميع المنقولات ضد الكسور أو الخدوش.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview Section -->
+    <section class="services-overview">
+        <div class="container">
+            <h2>خدماتنا</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="https://via.placeholder.com/80" alt="نقل عفش">
+                    <h4>نقل عفش</h4>
+                    <p>نقل عفش آمن وسريع بضمان شامل ضد الكسور والخدوش.</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://via.placeholder.com/80" alt="تخزين عفش">
+                    <h4>تخزين عفش</h4>
+                    <p>تخزين آمن للممتلكات في مستودعات مجهزة بأعلى معايير الأمان.</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://via.placeholder.com/80" alt="تغليف عفش">
+                    <h4>تغليف عفش</h4>
+                    <p>تغليف احترافي لجميع أنواع العفش باستخدام مواد عالية الجودة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <h2>تواصل معنا اليوم!</h2>
+            <p>للاستفسارات أو طلب الخدمة، لا تتردد في التواصل معنا.</p>
+            <a href="#" class="cta-button">اطلب الخدمة الآن</a>
+            <div class="keywords">
+                <span>نقل عفش</span>
+                <span>نقل أثاث</span>
+                <span>تخزين عفش</span>
+                <span>نقل آمن</span>
+                <span>خدمة نقل محترفة</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
